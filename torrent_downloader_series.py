@@ -28,24 +28,6 @@ class TorrentDownloader:
         self.__session = lt.session()
         self.__session.listen_on(6881, 6891)
 
-    # Getters
-    @property
-    def feed_rss(self):
-        return self.__feed_rss
-
-    @property
-    def save_path(self):
-        return self.__save_path
-
-    # Setters
-    @feed_rss.setter
-    def feed_rss(self, feed_rss):
-        self.__feed_rss = feed_rss
-
-    @save_path.setter
-    def save_path(self, save_path):
-        self.__save_path = save_path
-
     # Parser feed
     def get_feed_items(self, feed_rss):
         return(feedparser.parse(feed_rss))
@@ -92,8 +74,7 @@ class TorrentDownloader:
             if delta_time >= 25:
                 hash_dict.pop(key)
         return hash_dict, list(hash_dict.keys())
-
-    @property
+    
     def checknew(self):
 
         series_dict = {}
@@ -160,4 +141,4 @@ class TorrentDownloader:
 
 
 if __name__ == "__main__":
-    TorrentDownloader().checknew
+    TorrentDownloader().checknew()
