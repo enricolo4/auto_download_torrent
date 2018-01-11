@@ -76,7 +76,6 @@ class TorrentDownloader:
         return hash_dict, list(hash_dict.keys())
     
     def checknew(self):
-
         series_dict = {}
         series_keys = []
         has_change = False
